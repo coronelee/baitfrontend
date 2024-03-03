@@ -1,0 +1,12 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: 'numbers';
+  src: url('../Stengazeta-Regular_5.ttf');
+}
+@font-face {
+  font-family: 'maintext';
+  src: url('../PoiretOne-Regular.ttf');
+}
