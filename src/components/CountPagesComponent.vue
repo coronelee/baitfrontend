@@ -29,7 +29,7 @@ defineProps({
       <div></div>
       <div>
         <button @click="editCountPage(0)">
-          <span v-if="countPage === 0" class="welcome"></span>
+          <span v-if="countPage === 0" class="welcome" max-v></span>
           <span v-else>00</span>
         </button>
       </div>
