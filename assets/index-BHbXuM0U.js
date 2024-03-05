@@ -3517,7 +3517,7 @@ function _r(e, t) {
   return R(), H("div", pr, mr);
 }
 const xr = xt(hr, [["render", _r]]),
-  br = "../img/logo.svg",
+  br = "img/logo.svg",
   vr = { class: "w-full h-28 fixed top-0 flex justify-center" },
   yr = {
     class:
