@@ -6,7 +6,6 @@ export default {
       keyframes: {
         openHamburger: {
           '0%': {},
-
           '100%': {
             transform:
               'matrix3d(3.894348, 0.638783, 0, 0.002261,  0, 2.82, 0, 0,  0, 0, 1, 0, 101, 109, 0, 1) scaleY(0.2) scaleX(0.15)',
@@ -35,6 +34,13 @@ export default {
           '100%': {
             opacity: 1,
             transform: 'translateX(0)'
+          }
+        },
+        loadText: {
+          '0%': { width: 0 },
+           
+          '100%': {
+            width: '100%'
           }
         }
       }

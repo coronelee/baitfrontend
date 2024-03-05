@@ -46,6 +46,7 @@ onMounted(() => {
         <div class="2xl:hidden">
           <span>
             <b>BAit это -</b><span>{{ text }}</span>
+            <div class="w-full h-px bg-white animate-[loadText_5s_ease-in-out_infinite] mt-2"></div>
           </span>
         </div>
         <div
