@@ -126,7 +126,7 @@ const toggleHamburger = () => {
     el.classList.remove('animate-[closeHamburger_0.4s_ease-in-out]')
     el.classList.add('animate-[openHamburger_0.4s_ease-in-out]')
 
-    el.style.outline = '30px solid #0f33ff'
+    el.style.outline = '15px solid #0f33ff'
     setTimeout(() => {
       document.getElementById('menu').style.opacity = 1
     }, 400)
@@ -149,8 +149,8 @@ const toggleHamburger = () => {
 </script>
 <template>
   <div
-    class="relative bg-[#0c0c0c] flex justify-center items-center overflow-hidden animate-[backgroundRadial_5s_ease-in-out_infinite]"
-    :style="countPage === 5 || countPage === 4 ? 'background: #0c0c0c' : ''"
+    class="relative bg-[#0c0c0c] flex justify-center items-center overflow-hidden animate-[backgroundRadial_15s_ease-in-out_infinite]"
+    :style="countPage === 4 ? 'background: #0c0c0c' : ''"
     id="wrapper"
   >
     <div class="h-screen w-screen bg-cover bg-no-repeat bg-contain overflow-hidden" id="mainWindow">
