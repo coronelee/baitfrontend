@@ -38,9 +38,7 @@ onMounted(() => {
             Написать нам
           </button>
         </div>
-        <div
-          class="w-1/2 h-full max-[600px]:hidden bg-[url('/welcome.png')] bg-bottom bg-contain bg-no-repeat float-bottom"
-        ></div>
+        <div class="w-1/2 h-full max-[600px]:hidden bg-bottom bg-cover bg-no-repeat" id="we"></div>
       </div>
       <div class="w-full h-1/5 flex justify-between items-center 2xl:justify-center">
         <div class="2xl:hidden">
@@ -60,7 +58,5 @@ onMounted(() => {
         </div>
       </div>
     </div>
-
-    <!-- <img src="/me.jpg" class="w-1/2 flex items-center" /> -->
   </div>
 </template>

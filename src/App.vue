@@ -55,6 +55,9 @@ const letters = (text) => {
     }
   }
 }
+let oldTouch
+let touch = false
+
 onMounted(() => {
   window.addEventListener('wheel', (event) => {
     if (fl === 0) {
@@ -76,8 +79,44 @@ onMounted(() => {
       }, 500)
     }
   })
-
   letters(text[countPage.value])
+
+  document.addEventListener('touchstart', touchstart)
+  function touchstart(event) {
+    oldTouch = event.changedTouches.item(0).clientY
+    document.addEventListener('touchmove', touchend)
+  }
+  function touchend(event) {
+    if (!touch) {
+      touch = true
+      setTimeout(() => {
+        if (hamburger.value) {
+          return
+        } else if (
+          !hamburger.value &&
+          countPage.value === 0 &&
+          oldTouch < event.changedTouches.item(0).clientY
+        ) {
+          countPage.value = 5
+          letters(text[countPage.value])
+        } else if (
+          !hamburger.value &&
+          countPage.value === 5 &&
+          oldTouch > event.changedTouches.item(0).clientY
+        ) {
+          countPage.value = 0
+          letters(text[countPage.value])
+        } else {
+          countPage.value += Math.sign(oldTouch - event.changedTouches.item(0).clientY)
+          letters(text[countPage.value])
+        }
+      }, 50)
+    }
+
+    setTimeout(() => {
+      touch = false
+    }, 100)
+  }
 })
 
 const toggleHamburger = () => {
@@ -109,8 +148,12 @@ const toggleHamburger = () => {
 }
 </script>
 <template>
-  <div class="relative bg-[#0c0c0c] flex justify-center items-center overflow-hidden">
-    <div class="bg-[#0c0c0c] h-screen w-screen overflow-hidden" id="mainWindow">
+  <div
+    class="relative bg-[#0c0c0c] flex justify-center items-center overflow-hidden animate-[backgroundRadial_5s_ease-in-out_infinite]"
+    :style="countPage === 5 || countPage === 4 ? 'background: #0c0c0c' : ''"
+    id="wrapper"
+  >
+    <div class="h-screen w-screen bg-cover bg-no-repeat bg-contain overflow-hidden" id="mainWindow">
       <HeaderComponent :toggleHamburger="toggleHamburger" :editCountPage="editCountPage" />
       <div class="h-full flex justify-start items-end w-8/12 max-[800px]:w-10/12 m-auto">
         <CountPagesComponent :editCountPage="editCountPage" :countPage="countPage" />
@@ -156,6 +199,11 @@ const toggleHamburger = () => {
 </template>
 <style scope>
 #mainWindow {
-  transform-origin: -100px 25% 0px;
+  transform-origin: 0 25% 0;
+}
+#wrapper {
+  background-image: radial-gradient(85% 80% at 90% 5%, #0f33ff 0%, #0c0c0c 100%);
+  background-size: 200% 200%;
+  background-position: 0px 0px;
 }
 </style>

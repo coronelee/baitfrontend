@@ -38,10 +38,17 @@ export default {
         },
         loadText: {
           '0%': { width: 0 },
-           
+
           '100%': {
             width: '100%'
           }
+        },
+        backgroundRadial: {
+          '0%': {
+            'background-position': '0px 0px'
+          },
+          '50%': { 'background-position': '50% 50%' },
+          '100%': { 'background-position': '0px 0px' }
         }
       }
     },
