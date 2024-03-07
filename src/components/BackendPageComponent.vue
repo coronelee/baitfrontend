@@ -45,7 +45,7 @@ const techBack = ['java spring', 'я хуй знает сам']
         </div>
         <div class="flex [&>a>img]:w-8 gap-4">
           <span>Связь со мной: </span
-          ><a href="tg://resolve?domain=@macgoodmonsta"> <img src="/tg.svg" alt="" /></a
+          ><a href="tg://resolve?domain=macgoodmonsta"> <img src="/tg.svg" alt="" /></a
           ><a href="https://vk.com/macgoodmonsta"><img src="/vk.svg" alt="" /></a>
         </div>
       </div>

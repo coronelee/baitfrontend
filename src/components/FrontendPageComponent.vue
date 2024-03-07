@@ -57,7 +57,7 @@ const techFront = [
         </div>
         <div class="flex [&>a>img]:w-8 gap-4">
           <span>Связь со мной: </span
-          ><a href="tg://resolve?domain=@yourantosha"> <img src="/tg.svg" alt="" /></a
+          ><a href="tg://resolve?domain=yourantosha"> <img src="/tg.svg" alt="" /></a
           ><a href="https://vk.com/6old6"><img src="/vk.svg" alt="" /></a>
         </div>
       </div>
