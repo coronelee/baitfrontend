@@ -88,7 +88,7 @@ let touch = false
 
 onMounted(() => {
   if (window.innerWidth < 450) {
-    document.getElementById('wrapper').classList.add('h-dvh')
+    document.getElementById('wrapper').style.height = '100dvh'
   }
   document.getElementById('mainWindow').addEventListener('wheel', (event) => {
     if (fl === 0) {
