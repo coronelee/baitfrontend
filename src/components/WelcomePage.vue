@@ -22,7 +22,7 @@ onMounted(() => {
 </script>
 <template>
   <div
-    class="text-white w-5/6 nax-[800px]:w-full h-[calc(100vh-7rem)] font-maintext text-xl flex justify-center items-center animate-[openPage_0.5s_ease-in-out]"
+    class="text-white w-5/6 max-[800px]:w-full h-dvh font-maintext text-xl flex justify-center items-center animate-[openPage_0.5s_ease-in-out]"
   >
     <div class="w-full h-full m-auto flex flex-col justify-center items-center">
       <div class="w-full h-3/5 gap-8 border-b border-white flex justify-between items-end">

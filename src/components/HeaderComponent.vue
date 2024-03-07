@@ -5,7 +5,7 @@ defineProps({
 })
 </script>
 <template>
-  <header class="w-full h-28 fixed top-0 flex justify-center">
+  <header class="w-full h-28 top-0 flex justify-center fixed">
     <div class="flex justify-between items-center w-8/12 h-full max-[800px]:w-10/12">
       <img src="/logo.svg" class="w-14 h-14 cursor-pointer" alt="" @click="editCountPage(0)" />
       <button

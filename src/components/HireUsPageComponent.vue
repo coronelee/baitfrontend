@@ -1,6 +1,6 @@
 <template>
   <div
-    class="text-white w-5/6 h-[calc(100vh-7rem)] font-maintext text-xl flex justify-center items-center animate-[openPage_0.5s_ease-in-out]"
+    class="text-white w-5/6 h-dvh font-maintext text-xl flex justify-center items-center animate-[openPage_0.5s_ease-in-out]"
   >
     <div class="w-full m-auto flex flex-col gap-8">
       <div class="text-center flex flex-col">

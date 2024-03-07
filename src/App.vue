@@ -44,13 +44,33 @@ const text = [
     text: 'Hire us'
   }
 ]
+const bgGradient = [
+  {
+    color: 'background-image: radial-gradient(85% 80% at 90% 5%, #c40fff 0%, #0c0c0c 100%)'
+  },
+  {
+    color: 'background-image: radial-gradient(85% 80% at 90% 5%, #790fff 0%, #0c0c0c 100%)'
+  },
+  {
+    color: 'background-image: radial-gradient(85% 80% at 90% 5%, #faff0f 0%, #0c0c0c 100%)'
+  },
+  {
+    color: 'background-image: radial-gradient(85% 80% at 90% 5%, #0fffbe 0%, #0c0c0c 100%)'
+  },
+  {
+    color: 'background-image: radial-gradient(85% 80% at 90% 5%, #0f33ff 0%, #0c0c0c 100%)'
+  },
+  {
+    color: 'background-image: radial-gradient(85% 80% at 90% 5%, #ff8d0f 0%, #0c0c0c 100%)'
+  }
+]
 let fl = 0
 
-const letters = (text) => {
+const letters = (name) => {
   if (fl == 0) {
-    for (let i = 0; i < text.text.length; i++) {
+    for (let i = 0; i < name.text.length; i++) {
       setTimeout(() => {
-        document.getElementById(text.selector).innerHTML += text.text.charAt(i)
+        document.getElementById(name.selector).innerHTML += name.text.charAt(i)
       }, 100 * i)
     }
   }
@@ -149,13 +169,17 @@ const toggleHamburger = () => {
 </script>
 <template>
   <div
-    class="relative bg-[#0c0c0c] flex justify-center items-center overflow-hidden animate-[backgroundRadial_15s_ease-in-out_infinite]"
-    :style="countPage === 4 ? 'background: #0c0c0c' : ''"
+    class="relative h-dvh bg-[length:200%] flex justify-center items-center overflow-hidden transition-all duration-1000 animate-[backgroundRadial_15s_ease-in-out_infinite]"
+    :style="bgGradient[countPage].color"
     id="wrapper"
   >
-    <div class="h-screen w-screen bg-cover bg-no-repeat bg-contain overflow-hidden" id="mainWindow">
+    <div
+      class="h-full w-full bg-cover bg-no-repeat bg-contain overflow-hidden"
+      :style="hamburger ? 'background-color: #0c0c0c' : ' '"
+      id="mainWindow"
+    >
       <HeaderComponent :toggleHamburger="toggleHamburger" :editCountPage="editCountPage" />
-      <div class="h-full flex justify-start items-end w-8/12 max-[800px]:w-10/12 m-auto">
+      <div class="h-full flex justify-start items-center w-8/12 max-[800px]:w-10/12 m-auto">
         <CountPagesComponent :editCountPage="editCountPage" :countPage="countPage" />
         <WelcomePage v-if="countPage === 0" :editCountPage="editCountPage" :countPage="countPage" />
         <FrontendPageComponent v-if="countPage === 1" />
@@ -167,7 +191,7 @@ const toggleHamburger = () => {
     </div>
     <div
       v-if="hamburger"
-      class="absolute w-screen h-screen backdrop-blur-[1.5px] flex flex-col justify-center opacity-0 items-center text-white [&>span>div]:w-[calc(100%+4rem)] [&>span>div]:absolute [&>span>div]:h-3.5 [&>span>div]:bg-[#0f33ff] [&>span>div]:z-10 text-6xl gap-4 font-numbers animate-[openMenu_0.5s_ease-in-out] [&>span]:cursor-pointer [&>span]:flex [&>span]:justify-center [&>span]:items-center [&>span]:relative"
+      class="absolute w-full h-full backdrop-blur-[1.5px] flex flex-col justify-center opacity-0 items-center text-white [&>span>div]:w-[calc(100%+4rem)] [&>span>div]:absolute [&>span>div]:h-3.5 [&>span>div]:bg-[#0f33ff] [&>span>div]:z-10 text-6xl gap-4 font-numbers animate-[openMenu_0.5s_ease-in-out] [&>span]:cursor-pointer [&>span]:flex [&>span]:justify-center [&>span]:items-center [&>span]:relative"
       id="menu"
     >
       <span @click="editCountPage(0), toggleHamburger()">
@@ -200,10 +224,6 @@ const toggleHamburger = () => {
 <style scope>
 #mainWindow {
   transform-origin: 0 25% 0;
-}
-#wrapper {
-  background-image: radial-gradient(85% 80% at 90% 5%, #0f33ff 0%, #0c0c0c 100%);
-  background-size: 200% 200%;
   background-position: 0px 0px;
 }
 </style>
