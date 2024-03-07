@@ -10,3 +10,15 @@
   font-family: 'maintext';
   src: url('../PoiretOne-Regular.ttf');
 }
+@font-face {
+  font-family: 'tech';
+  src: url('../Almarai-Light.ttf');
+}
+.element::-webkit-scrollbar {
+  width: 0;
+}
+
+/*Убрать полосу прокрутки для всей страницы*/
+::-webkit-scrollbar {
+  width: 0;
+}

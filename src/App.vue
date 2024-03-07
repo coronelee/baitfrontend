@@ -18,6 +18,7 @@ const editCountPage = (page) => {
     letters(text[countPage.value])
   }
 }
+
 const text = [
   {
     selector: 'welcome',
@@ -46,7 +47,7 @@ const text = [
 ]
 const bgGradient = [
   {
-    color: 'background-image: radial-gradient(85% 80% at 90% 5%, #c40fff 0%, #0c0c0c 100%)'
+    color: 'background-image: radial-gradient(85% 80% at 90% 5%,  #0fffbe 0%, #0c0c0c 100%)'
   },
   {
     color: 'background-image: radial-gradient(85% 80% at 90% 5%, #790fff 0%, #0c0c0c 100%)'
@@ -55,7 +56,7 @@ const bgGradient = [
     color: 'background-image: radial-gradient(85% 80% at 90% 5%, #faff0f 0%, #0c0c0c 100%)'
   },
   {
-    color: 'background-image: radial-gradient(85% 80% at 90% 5%, #0fffbe 0%, #0c0c0c 100%)'
+    color: 'background-image: radial-gradient(85% 80% at 90% 5%, #c40fff 0%, #0c0c0c 100%)'
   },
   {
     color: 'background-image: radial-gradient(85% 80% at 90% 5%, #0f33ff 0%, #0c0c0c 100%)'
@@ -64,6 +65,7 @@ const bgGradient = [
     color: 'background-image: radial-gradient(85% 80% at 90% 5%, #ff8d0f 0%, #0c0c0c 100%)'
   }
 ]
+
 let fl = 0
 
 const letters = (name) => {
@@ -142,39 +144,35 @@ onMounted(() => {
 const toggleHamburger = () => {
   const el = document.querySelector('#mainWindow')
   hamburger.value = !hamburger.value
-  if (hamburger.value) {
-    el.classList.remove('animate-[closeHamburger_0.4s_ease-in-out]')
-    el.classList.add('animate-[openHamburger_0.4s_ease-in-out]')
 
-    el.style.outline = '15px solid #0f33ff'
-    setTimeout(() => {
-      document.getElementById('menu').style.opacity = 1
-    }, 400)
+  if (hamburger.value) {
+    el.classList.add('animate-[openHamburger_0.4s_ease-in-out]')
+    el.classList.remove('animate-[closeHamburger_0.4s_ease-in-out]')
     setTimeout(() => {
       el.style.transform =
         'matrix3d(3.894348, 0.638783, 0, 0.002261,  0, 2.82, 0, 0,  0, 0, 1, 0, 101, 109, 0, 1) scaleY(0.2) scaleX(0.15)'
+      document.getElementById('menu').style.opacity = 1
+      el.style.outline = '15px solid #0f33ff'
     }, 400)
   } else if (!hamburger.value) {
+    document.getElementById('menu').style.opacity = 0
     el.classList.remove('animate-[openHamburger_0.4s_ease-in-out]')
     el.classList.add('animate-[closeHamburger_0.4s_ease-in-out]')
     el.style.outline = 'none'
-
-    document.getElementById('menu').style.opacity = 0
-
     setTimeout(() => {
-      el.style.transform = 'matrix3d(1, 0, 0, 0,  0, 1, 0, 0,  0, 0, 1, 0, 0, 0, 0, 1) scale(1)'
-    }, 400)
+      el.style.transform = 'matrix3d(1, 0, 0, 0,  0, 1, 0, 0,  0, 0, 1, 0,  0, 0, 0, 1) scale(1)'
+    }, 500)
   }
 }
 </script>
 <template>
   <div
-    class="relative h-dvh bg-[length:200%] flex justify-center items-center overflow-hidden transition-all duration-1000 animate-[backgroundRadial_15s_ease-in-out_infinite]"
+    class="relative h-dvh bg-[length:200%_200%] flex justify-center items-center overflow-hidden animate-[backgroundRadial_15s_ease-in-out_infinite]"
     :style="bgGradient[countPage].color"
     id="wrapper"
   >
     <div
-      class="h-full w-full bg-cover bg-no-repeat bg-contain overflow-hidden"
+      class="h-full w-full bg-cover bg-no-repeat bg-contain overflow-hidden transition-all duration-600"
       :style="hamburger ? 'background-color: #0c0c0c' : ' '"
       id="mainWindow"
     >
@@ -194,29 +192,9 @@ const toggleHamburger = () => {
       class="absolute w-full h-full backdrop-blur-[1.5px] flex flex-col justify-center opacity-0 items-center text-white [&>span>div]:w-[calc(100%+4rem)] [&>span>div]:absolute [&>span>div]:h-3.5 [&>span>div]:bg-[#0f33ff] [&>span>div]:z-10 text-6xl gap-4 font-numbers animate-[openMenu_0.5s_ease-in-out] [&>span]:cursor-pointer [&>span]:flex [&>span]:justify-center [&>span]:items-center [&>span]:relative"
       id="menu"
     >
-      <span @click="editCountPage(0), toggleHamburger()">
-        <div v-if="countPage === 0"></div>
-        <span class="">Welcome</span>
-      </span>
-      <span @click="editCountPage(1), toggleHamburger()">
-        <div v-if="countPage === 1"></div>
-        <span>Frontend</span></span
-      >
-      <span @click="editCountPage(2), toggleHamburger()">
-        <div v-if="countPage === 2"></div>
-        <span>Backend</span></span
-      >
-      <span @click="editCountPage(3), toggleHamburger()">
-        <div v-if="countPage === 3"></div>
-        <span>Works</span></span
-      >
-      <span @click="editCountPage(4), toggleHamburger()">
-        <div v-if="countPage === 4"></div>
-        <span>Contacts</span></span
-      >
-      <span @click="editCountPage(5), toggleHamburger()">
-        <div v-if="countPage === 5"></div>
-        <span>Hire us</span>
+      <span v-for="i in text.length" :key="i" @click="editCountPage(i - 1), toggleHamburger()">
+        <div v-if="countPage === i - 1"></div>
+        <span>{{ text[i - 1].text }}</span>
       </span>
     </div>
   </div>

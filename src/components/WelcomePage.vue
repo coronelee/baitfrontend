@@ -26,7 +26,7 @@ onMounted(() => {
   >
     <div class="w-full h-full m-auto flex flex-col justify-center items-center">
       <div class="w-full h-3/5 gap-8 border-b border-white flex justify-between items-end">
-        <div class="w-1/2 h-full flex flex-col gap-4 justify-end items-start max-[600px]:w-full">
+        <div class="w-1/2 h-full flex flex-col gap-4 justify-end items-start max-[1050px]:w-full">
           <span
             >Добро пожаловать в нашу веб-студию, где каждая страница — это искусство, а каждый
             проект — уникальная история вашего бренда.</span
@@ -38,7 +38,7 @@ onMounted(() => {
             Написать нам
           </button>
         </div>
-        <div class="w-1/2 h-full max-[600px]:hidden bg-bottom bg-cover bg-no-repeat" id="we"></div>
+        <img src="/welcome.png" class="w-1/2 max-[1050px]:hidden rounded-tr-[250px]" id="we" />
       </div>
       <div class="w-full h-1/5 flex justify-between items-center 2xl:justify-center">
         <div class="2xl:hidden">

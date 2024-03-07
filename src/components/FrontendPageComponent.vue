@@ -1,16 +1,45 @@
+<script setup>
+const techFront = [
+  'react.js & vue.js & next.js',
+  'scss & tailwindcss',
+  'js & ts',
+  'git',
+  'БЭМ',
+  'vite',
+  'adaptive & cross-browser',
+  'etc...'
+]
+</script>
 <template>
   <div
-    class="text-white w-5/6 h-dvh font-maintext text-xl flex justify-center items-center animate-[openPage_0.8s_ease-in-out]"
+    class="text-white w-5/6 h-dvh font-maintext text-xl flex justify-between items-center gap-4 animate-[openPage_0.8s_ease-in-out]"
   >
-    <div class="w-full m-auto">
-      <!-- <b class="text-3xl">Привет!</b> <br />
-      <span class="text-5xl"> Меня зовут <span class="text-red-500">Антон</span>, <br /></span> Я
-      Frontend-разработчик, увлеченный созданием интерактивных, доступных и адаптивных веб-сайтов.
-      Ознакомьтесь с разделом мои проекты, где представлены некоторые из созданных мной веб-сайтов.
-      В настоящее время я открыт для вакансий, где я могу внести свой вклад в ваш бизнес. Не
-      стесняйтесь обращаться ко мне, если вы сочтете мои навыки полезными -->
-      front
+    <div class="w-1/2 flex flex-col max-[1300px]:w-full">
+      <b class="text-3xl">Привет!</b>
+      <span class="text-5xl"> Меня зовут <span class="text-red-500">Антон</span>, <br /> </span>
+      <b>Я Frontend-разработчик</b>
+      <span>Увлеченный созданием интерактивных, доступных и адаптивных веб-сайтов. </span>
+      <div class="mt-4 flex flex-col gap-6">
+        <div class="flex flex-col gap-2">
+          <span>Для создания клиентской части сайта я использую:</span>
+          <div
+            class="flex gap-2 justify-start items-center flex-wrap max-[510px]:overflow-y-hidden max-[510px]:flex-nowrap"
+          >
+            <span
+              v-for="t in techFront"
+              :key="t"
+              class="py-2 px-4 bg-[#0c0c0c33] rounded-full text-center font-tech text-[15px]"
+              >{{ t }}</span
+            >
+          </div>
+        </div>
+        <div class="flex [&>a>img]:w-8 gap-4">
+          <span>Связь со мной: </span
+          ><a href="tg://resolve?domain=@yourantosha"> <img src="/tg.svg" alt="" /></a
+          ><a href="https://vk.com/6old6"><img src="/vk.svg" alt="" /></a>
+        </div>
+      </div>
     </div>
-    <!-- <img src="/me.jpg" class="w-1/2 flex items-center" /> -->
+    <img src="/me.png" class="w-1/2 flex items-center max-[1300px]:hidden" />
   </div>
 </template>

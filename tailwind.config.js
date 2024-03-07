@@ -5,17 +5,22 @@ export default {
     extend: {
       keyframes: {
         openHamburger: {
-          '0%': {},
+          '0%': {
+            transform: 'matrix3d(1, 0, 0, 0,  0, 1, 0, 0,  0, 0, 1, 0, 0, 0, 0, 1) scale(1)',
+            outline: 'none'
+          },
           '100%': {
             transform:
               'matrix3d(3.894348, 0.638783, 0, 0.002261,  0, 2.82, 0, 0,  0, 0, 1, 0, 101, 109, 0, 1) scaleY(0.2) scaleX(0.15)',
-
             outline: '15px solid #0f33ff'
           }
         },
         closeHamburger: {
-          '0%': {},
-
+          '0%': {
+            transform:
+              'matrix3d(3.894348, 0.638783, 0, 0.002261,  0, 2.82, 0, 0,  0, 0, 1, 0, 101, 109, 0, 1) scaleY(0.2) scaleX(0.15)',
+            outline: '15px solid #0f33ff'
+          },
           '100%': {
             transform: 'matrix3d(1, 0, 0, 0,  0, 1, 0, 0,  0, 0, 1, 0, 0, 0, 0, 1) scale(1)',
             outline: 'none'
@@ -54,7 +59,8 @@ export default {
     },
     fontFamily: {
       numbers: ['numbers', 'sans-serif'],
-      maintext: ['maintext', 'sans-serif']
+      maintext: ['maintext', 'sans-serif'],
+      tech: ['tech', 'sans-serif']
     }
   },
   plugins: []

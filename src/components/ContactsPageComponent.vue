@@ -3,7 +3,7 @@
     class="text-white w-5/6 h-dvh font-maintext text-xs flex justify-center items-center animate-[openPage_0.5s_ease-in-out]"
   >
     <div
-      class="w-full h-full m-auto bg-[#0c0c0c] drop-shadow-[0_0_35px_rgba(0,0,0,1)] bg-[url('/mapsppt.png')] bg-cover bg-no-repeat bg-center flex items-center pr-44 justify-end max-xl:justify-center max-xl:pr-0"
+      class="w-full h-2/3 m-auto bg-[#0c0c0ccc] drop-shadow-[0_0_35px_rgba(0,0,0,1)] bg-[url('/mapsppt.png')] bg-cover bg-no-repeat bg-center flex items-center pr-44 justify-end max-xl:justify-center max-xl:pr-0"
     >
       <div
         class="text-center p-8 bg-[#0c0c0c] shadow-2xl p-4 rounded-xl flex flex-col gap-4 justify-center items-center max-xl:bg-[#0c0c0ccc]"
