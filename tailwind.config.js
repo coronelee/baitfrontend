@@ -58,6 +58,15 @@ export default {
           '100%': {
             'background-position': '0px 0px'
           }
+        },
+        animateWorks: {
+          '0%': {
+            transform: 'translateX(0)'
+          },
+
+          '100%': {
+            transform: 'translateX(-100%)'
+          }
         }
       }
     },

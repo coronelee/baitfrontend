@@ -6,7 +6,7 @@ defineProps({
 </script>
 <template>
   <div
-    class="text-white h-[calc(dvh-7rem)] w-1/6 flex flex justify-center items-center font-numbers text-xl z-50"
+    class="text-white h-[calc(dvh-7rem)] w-1/6 flex flex justify-center items-center font-numbers text-xl z-50 max-[420px]:hidden"
   >
     <div
       class="h-full flex flex-col justify-center items-center [&>div:nth-child(even)]:-mt-2 [&>div:nth-child(even)]:h-2 [&>div:nth-child(even)>button]:z-10 [&>div:nth-child(even)>button]:bg-[#252525] [&>div:nth-child(even)>button]:rounded-full [&>div:nth-child(even)>button]:w-2 [&>div:nth-child(even)>button]:h-2 [&>div:nth-child(odd)]:w-px [&>div:nth-child(odd)]:h-[80px] [&>div:nth-child(odd)]:bg-[#252525]"

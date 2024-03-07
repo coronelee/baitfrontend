@@ -14,7 +14,6 @@ const scrollTech = ref(false)
 
 const editScrollTech = (touch) => {
   scrollTech.value = touch
-  console.log(touch)
 }
 const editCountPage = (page) => {
   if (page == countPage.value) {
@@ -184,6 +183,7 @@ const toggleHamburger = () => {
     class="relative h-screen bg-[length:200%_200%] flex justify-center items-center overflow-hidden animate-[backgroundRadial_15s_ease-in-out_infinite]"
     :style="bgGradient[countPage].color"
     id="wrapper"
+    @keydown.esc="toggleHamburger()"
   >
     <div
       class="h-full w-full bg-cover bg-no-repeat bg-contain overflow-hidden transition-all duration-600"
@@ -191,7 +191,9 @@ const toggleHamburger = () => {
       id="mainWindow"
     >
       <HeaderComponent :toggleHamburger="toggleHamburger" :editCountPage="editCountPage" />
-      <div class="h-full flex justify-start items-center w-8/12 max-[800px]:w-10/12 m-auto">
+      <div
+        class="h-full flex justify-start items-center w-8/12 max-[800px]:w-10/12 m-auto max-[420px]:w-4/5 max-[420px]:justify-center"
+      >
         <CountPagesComponent :editCountPage="editCountPage" :countPage="countPage" />
         <WelcomePage v-if="countPage === 0" :editCountPage="editCountPage" :countPage="countPage" />
         <FrontendPageComponent v-if="countPage === 1" :editScrollTech="editScrollTech" />

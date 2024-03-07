@@ -16,19 +16,42 @@ onMounted(() => {
   })
 })
 const techFront = [
-  'react.js',
-  'vue.js',
-  'next.js',
-  'scss',
-  'tailwindcss',
-  'js',
-  'ts',
-  'git',
-  'БЭМ',
-  'vite',
-  'adaptive',
-  'cross-browser',
-  'etc...'
+  {
+    img: '/front/react.svg',
+    link: 'https://reactjs.org/'
+  },
+  {
+    img: '/front/vue.svg',
+    link: 'https://vuejs.org/'
+  },
+  {
+    img: '/front/next.svg',
+    link: 'https://nextjs.org/'
+  },
+  {
+    img: '/front/scss.svg',
+    link: 'https://sass-lang.com/'
+  },
+  {
+    img: '/front/tailwindcss.svg',
+    link: 'https://tailwindcss.com/'
+  },
+  {
+    img: '/front/js.svg',
+    link: 'https://developer.mozilla.org/ru/docs/Web/JavaScript'
+  },
+  {
+    img: '/front/ts.svg',
+    link: 'https://www.typescriptlang.org/'
+  },
+  {
+    img: '/front/git.svg',
+    link: 'https://github.com/'
+  },
+  {
+    img: '/front/vite.svg',
+    link: 'https://vitejs.dev/'
+  }
 ]
 </script>
 <template>
@@ -47,12 +70,14 @@ const techFront = [
             class="flex gap-2 justify-start items-center flex-wrap max-[510px]:overflow-y-hidden max-[510px]:flex-nowrap"
             id="tech"
           >
-            <span
+            <a
               v-for="t in techFront"
               :key="t"
-              class="py-2 px-4 bg-[#0c0c0c33] rounded-full text-center font-tech text-[15px] whitespace-nowrap"
-              >{{ t }}</span
+              class="p-2 bg-white/15 rounded-full text-center font-tech text-[15px] whitespace-nowrap [&>img]:w-8"
+              :href="t.link"
             >
+              <img :src="t.img" alt="" />
+            </a>
           </div>
         </div>
         <div class="flex [&>a>img]:w-8 gap-4">
@@ -62,6 +87,6 @@ const techFront = [
         </div>
       </div>
     </div>
-    <img src="/me.jpg" class="w-1/2 flex items-center max-[1300px]:hidden" />
+    <div class="w-1/2 flex items-center max-[1300px]:hidden [&>img]:w-8"></div>
   </div>
 </template>
