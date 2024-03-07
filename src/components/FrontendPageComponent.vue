@@ -40,6 +40,6 @@ const techFront = [
         </div>
       </div>
     </div>
-    <img src="/me.png" class="w-1/2 flex items-center max-[1300px]:hidden" />
+    <img src="/me.jpg" class="w-1/2 flex items-center max-[1300px]:hidden" />
   </div>
 </template>
