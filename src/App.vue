@@ -87,6 +87,9 @@ let oldTouch
 let touch = false
 
 onMounted(() => {
+  if (window.innerWidth < 450) {
+    document.getElementById('wrapper').classList.add('h-dvh')
+  }
   document.getElementById('mainWindow').addEventListener('wheel', (event) => {
     if (fl === 0) {
       if (hamburger.value) {
@@ -170,13 +173,13 @@ const toggleHamburger = () => {
     el.style.outline = 'none'
     setTimeout(() => {
       el.style.transform = 'matrix3d(1, 0, 0, 0,  0, 1, 0, 0,  0, 0, 1, 0,  0, 0, 0, 1) scale(1)'
-    }, 500)
+    }, 400)
   }
 }
 </script>
 <template>
   <div
-    class="relative h-dvh bg-[length:200%_200%] flex justify-center items-center overflow-hidden animate-[backgroundRadial_15s_ease-in-out_infinite]"
+    class="relative h-screen bg-[length:200%_200%] flex justify-center items-center overflow-hidden animate-[backgroundRadial_15s_ease-in-out_infinite]"
     :style="bgGradient[countPage].color"
     id="wrapper"
   >
