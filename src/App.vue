@@ -10,6 +10,12 @@ import WorksComponent from './components/WorksComponent.vue'
 import { onMounted, ref } from 'vue'
 const countPage = ref(0)
 const hamburger = ref(false)
+const scrollTech = ref(false)
+
+const editScrollTech = (touch) => {
+  scrollTech.value = touch
+  console.log(touch)
+}
 const editCountPage = (page) => {
   if (page == countPage.value) {
     return
@@ -81,7 +87,7 @@ let oldTouch
 let touch = false
 
 onMounted(() => {
-  window.addEventListener('wheel', (event) => {
+  document.getElementById('mainWindow').addEventListener('wheel', (event) => {
     if (fl === 0) {
       if (hamburger.value) {
         return
@@ -103,38 +109,41 @@ onMounted(() => {
   })
   letters(text[countPage.value])
 
-  document.addEventListener('touchstart', touchstart)
+  document.getElementById('mainWindow').addEventListener('touchstart', touchstart)
   function touchstart(event) {
     oldTouch = event.changedTouches.item(0).clientY
-    document.addEventListener('touchmove', touchend)
+    document.getElementById('mainWindow').addEventListener('touchmove', touchend)
   }
   function touchend(event) {
-    if (!touch) {
-      touch = true
-      setTimeout(() => {
-        if (hamburger.value) {
-          return
-        } else if (
-          !hamburger.value &&
-          countPage.value === 0 &&
-          oldTouch < event.changedTouches.item(0).clientY
-        ) {
-          countPage.value = 5
-          letters(text[countPage.value])
-        } else if (
-          !hamburger.value &&
-          countPage.value === 5 &&
-          oldTouch > event.changedTouches.item(0).clientY
-        ) {
-          countPage.value = 0
-          letters(text[countPage.value])
-        } else {
-          countPage.value += Math.sign(oldTouch - event.changedTouches.item(0).clientY)
-          letters(text[countPage.value])
-        }
-      }, 50)
+    if (scrollTech.value) {
+      return
+    } else {
+      if (!touch) {
+        touch = true
+        setTimeout(() => {
+          if (hamburger.value) {
+            return
+          } else if (
+            !hamburger.value &&
+            countPage.value === 0 &&
+            oldTouch < event.changedTouches.item(0).clientY
+          ) {
+            countPage.value = 5
+            letters(text[countPage.value])
+          } else if (
+            !hamburger.value &&
+            countPage.value === 5 &&
+            oldTouch > event.changedTouches.item(0).clientY
+          ) {
+            countPage.value = 0
+            letters(text[countPage.value])
+          } else {
+            countPage.value += Math.sign(oldTouch - event.changedTouches.item(0).clientY)
+            letters(text[countPage.value])
+          }
+        }, 50)
+      }
     }
-
     setTimeout(() => {
       touch = false
     }, 100)
@@ -180,8 +189,8 @@ const toggleHamburger = () => {
       <div class="h-full flex justify-start items-center w-8/12 max-[800px]:w-10/12 m-auto">
         <CountPagesComponent :editCountPage="editCountPage" :countPage="countPage" />
         <WelcomePage v-if="countPage === 0" :editCountPage="editCountPage" :countPage="countPage" />
-        <FrontendPageComponent v-if="countPage === 1" />
-        <BackendPageComponent v-if="countPage === 2" />
+        <FrontendPageComponent v-if="countPage === 1" :editScrollTech="editScrollTech" />
+        <BackendPageComponent v-if="countPage === 2" :editScrollTech="editScrollTech" />
         <WorksComponent v-if="countPage === 3" />
         <ContactsPageComponent v-if="countPage === 4" />
         <HireUsPageComponent v-if="countPage === 5" />

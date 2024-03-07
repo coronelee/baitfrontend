@@ -1,12 +1,33 @@
 <script setup>
+const props = defineProps({
+  editScrollTech: Function
+})
+import { onMounted, ref } from 'vue'
+
+const touch = ref(false)
+onMounted(() => {
+  document.getElementById('tech').addEventListener('touchstart', (event) => {
+    touch.value = !touch.value
+    props.editScrollTech(touch.value)
+  })
+  document.getElementById('tech').addEventListener('touchend', (event) => {
+    touch.value = !touch.value
+    props.editScrollTech(touch.value)
+  })
+})
 const techFront = [
-  'react.js & vue.js & next.js',
-  'scss & tailwindcss',
-  'js & ts',
+  'react.js',
+  'vue.js',
+  'next.js',
+  'scss',
+  'tailwindcss',
+  'js',
+  'ts',
   'git',
   'БЭМ',
   'vite',
-  'adaptive & cross-browser',
+  'adaptive',
+  'cross-browser',
   'etc...'
 ]
 </script>
@@ -24,11 +45,12 @@ const techFront = [
           <span>Для создания клиентской части сайта я использую:</span>
           <div
             class="flex gap-2 justify-start items-center flex-wrap max-[510px]:overflow-y-hidden max-[510px]:flex-nowrap"
+            id="tech"
           >
             <span
               v-for="t in techFront"
               :key="t"
-              class="py-2 px-4 bg-[#0c0c0c33] rounded-full text-center font-tech text-[15px]"
+              class="py-2 px-4 bg-[#0c0c0c33] rounded-full text-center font-tech text-[15px] whitespace-nowrap"
               >{{ t }}</span
             >
           </div>
