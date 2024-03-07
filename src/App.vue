@@ -87,10 +87,6 @@ let oldTouch
 let touch = false
 
 onMounted(() => {
-  if (window.innerWidth < 450) {
-    document.getElementById('wrapper').style.height = '100dvh'
-    console.log('hello')
-  }
   document.getElementById('mainWindow').addEventListener('wheel', (event) => {
     if (fl === 0) {
       if (hamburger.value) {
@@ -180,7 +176,7 @@ const toggleHamburger = () => {
 </script>
 <template>
   <div
-    class="relative h-screen bg-[length:200%_200%] flex justify-center items-center overflow-hidden animate-[backgroundRadial_15s_ease-in-out_infinite]"
+    class="relative h-dvh bg-[length:200%_200%] flex justify-center items-center overflow-hidden animate-[backgroundRadial_15s_ease-in-out_infinite]"
     :style="bgGradient[countPage].color"
     id="wrapper"
   >
