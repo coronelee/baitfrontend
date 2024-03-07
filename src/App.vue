@@ -191,7 +191,7 @@ const toggleHamburger = () => {
         <WelcomePage v-if="countPage === 0" :editCountPage="editCountPage" :countPage="countPage" />
         <FrontendPageComponent v-if="countPage === 1" :editScrollTech="editScrollTech" />
         <BackendPageComponent v-if="countPage === 2" :editScrollTech="editScrollTech" />
-        <WorksComponent v-if="countPage === 3" />
+        <WorksComponent v-if="countPage === 3" :editScrollTech="editScrollTech" />
         <ContactsPageComponent v-if="countPage === 4" />
         <HireUsPageComponent v-if="countPage === 5" />
       </div>

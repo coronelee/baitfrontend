@@ -52,8 +52,12 @@ export default {
           '0%': {
             'background-position': '0px 0px'
           },
+
           '50%': { 'background-position': '50% 50%' },
-          '100%': { 'background-position': '0px 0px' }
+
+          '100%': {
+            'background-position': '0px 0px'
+          }
         }
       }
     },
