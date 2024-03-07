@@ -15,7 +15,7 @@ onMounted(() => {
     props.editScrollTech(touch.value)
   })
 })
-const techBack = ['java spring', 'я хуй знает сам']
+const techBack = ['java spring']
 </script>
 <template>
   <div
